@@ -1,0 +1,12 @@
+prefix=c:/Users/Mari/Desktop/PROJECT/.conda/Library
+exec_prefix=c:/Users/Mari/Desktop/PROJECT/.conda/Library
+libdir=c:/Users/Mari/Desktop/PROJECT/.conda/Library/lib
+includedir=c:/Users/Mari/Desktop/PROJECT/.conda/Library/include
+
+Name: libzmq
+Description: 0MQ c++ library
+Version: 4.3.5
+Libs: -L${libdir} -lzmq
+Libs.private: 
+Requires.private: 
+Cflags: -I${includedir} 

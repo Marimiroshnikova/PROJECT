@@ -1,15 +1,15 @@
-# official Python image
 FROM python:3.8-slim
 
-# working directory
+RUN apt-get update && apt-get install -y build-essential
+
+ENV TMPDIR=/tmp
+
 WORKDIR /app
 
-# copy the requirements file and install dependencies
-COPY ../../requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
+RUN python -m pip install --upgrade pip
+COPY requirements.txt .
+RUN pip install --no-cache-dir --default-timeout=100 -r requirements.txt || pip install -r requirements.txt
 
-# source code
-COPY ../../src /app/src
-COPY ../../data /app/data
+COPY . .
 
 CMD ["python", "src/train/train.py"]
